@@ -1,0 +1,8 @@
+org\example\controller\PingController.class
+org\example\repositories\RecipeRepository.class
+org\example\Application.class
+org\example\controller\RecipeController.class
+org\example\config\DataSourceConfig.class
+org\example\services\RecipeService.class
+org\example\models\Recipe.class
+org\example\StreamLambdaHandler.class
