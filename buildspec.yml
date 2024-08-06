@@ -1,33 +1,23 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      java: corretto17
-    commands:
-      - echo "Installing Maven..."
-      - yum install -y maven
   pre_build:
     commands:
       - echo "Running pre-build steps..."
       - mvn clean install
   build:
     commands:
-      - echo "Building the Lambda function..."
+      - echo "Building the Java Lambda function..."
       - mvn package
   post_build:
     commands:
       - echo "Build completed successfully."
       - echo "Zipping the package..."
-      - mkdir target/deployment
-      - cp target/recipe-lambda-1.0-SNAPSHOT.jar target/deployment/
+      - mkdir -p target/deployment
+      - cp target/recipe-java-lambda-1.0-SNAPSHOT.jar target/deployment/
       - cd target/deployment
-      - zip -r recipe-lambda.zip recipe-lambda-1.0-SNAPSHOT.jar
+      - zip -r recipe-java-lambda.zip recipe-java-lambda-1.0-SNAPSHOT.jar
 
 artifacts:
   files:
-    - target/deployment/recipe-lambda.zip
-
-cache:
-  paths:
-    - /root/.m2/**/*
+    - target/deployment/recipe-java-lambda.zip
