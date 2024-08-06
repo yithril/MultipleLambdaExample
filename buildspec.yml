@@ -12,12 +12,10 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully."
-      - echo "Zipping the package..."
+      - echo "Copying the package..."
       - mkdir -p target/deployment
-      - cp target/recipe-java-lambda-1.0-SNAPSHOT.jar target/deployment/
-      - cd target/deployment
-      - zip -r recipe-java-lambda.zip recipe-java-lambda-1.0-SNAPSHOT.jar
+      - cp target/aws-lambda-example-1.0-SNAPSHOT-lambda-package.zip target/deployment/
 
 artifacts:
   files:
-    - target/deployment/recipe-java-lambda.zip
+    - target/deployment/aws-lambda-example-1.0-SNAPSHOT-lambda-package.zip
