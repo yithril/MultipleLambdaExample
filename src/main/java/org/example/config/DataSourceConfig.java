@@ -17,10 +17,10 @@ import java.util.Map;
 @Configuration
 public class DataSourceConfig {
 
-    @Value("${aws.region}")
+    @Value("${AWS_REGION}")
     private String region;
 
-    @Value("${aws.secretsmanager.secret.id}")
+    @Value("${AWS_SECRETSMANAGER_SECRET_ID}")
     private String secretId;
 
     @Value("${DB_HOST}")
